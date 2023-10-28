@@ -1,3 +1,6 @@
+<?php
+    include("db.php"); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,41 +53,98 @@
             <div class="text">
                 <h1>ABOUT ME</h1>
                 <h2>Background</h2>
-                <p> My name is Iqbal Muqri. Born in 31st march 2001, i'm 22 years old and most people call me Iqbal or Jibu. 
-                    I live in Cyberjaya and I'm currently a full time netcentric computing student in shah Alam and I work as a freelance graphic designer.<br><br>
-                    I consider myself a talkative person arround my friends and families, but I'm actually shy with strangers. 
-                    I love music and technologies, I spend most of my times in front of my computers daily and I do vlog and play musical instruments for fun. 
-                    I don't really do sports except for rugby. Come and hang out with me to know more about me.
+                <?php
+                                    $sql = "SELECT * FROM about"; 
+    
+
+                                    $qry=mysqli_query($conn,$sql);
+                                    $row=mysqli_num_rows($qry);
+                    
+                                    if($row > 0)
+                    {   
+                        $d = mysqli_fetch_assoc($qry)
+                    
+                ?>
+                <p> 
+                    <?php echo $d['background']; ?> </p>
                 </p>
+                <?php
+                    }
+                ?>
             </div>
             <div class="text">
                 <h1>BIODATA</h1>
+                <?php
+                                    $sql = "SELECT * FROM biodata"; 
+    
+
+                                    $qry=mysqli_query($conn,$sql);
+                                    $row=mysqli_num_rows($qry);
+                    
+                                    if($row > 0)
+                    {   
+                        $d = mysqli_fetch_assoc($qry)
+                    
+                ?>
                 <div class="info">
                   <h2>Personal Information</h2>
-                  <p>Name : Iqbal Muqri Bin Irwan</p>
-                  <p>Place/Date Of Birth : KPJ Kuantan, 31st March 2001</p>
-                  <p>Age : 22 Years Old</p>	
-                  <p>Gender : Male</p>	
-                  <p>Hobbies : Gunpla/Toys, Jamming, Gaming</p>
-                  <p>Address : Summer Glades, Cyberjaya</p>
-                  <p>Email : imuqri31@gmail.com</p>
+                  <p>Name : <?php echo $d['name']; ?> </p>
+                  <p>Place/Date Of Birth : <?php echo $d['dob']; ?></p>
+                  <p>Age : <?php echo $d['age']; ?></p>	
+                  <p>Gender : <?php echo $d['gender']; ?></p>	
+                  <p>Hobbies : <?php echo $d['hobbies']; ?></p>
+                  <p>Address : <?php echo $d['address']; ?></p>
+                  <p>Email : <?php echo $d['email']; ?></p>
                   <br/>
                   <br/>
+                  <?php
+                    }
+                    ?>
                   <h2>Education</h2>
+                  <?php
+                                    $sql = "SELECT * FROM education"; 
+    
+
+                                    $qry=mysqli_query($conn,$sql);
+                                    $row=mysqli_num_rows($qry);
+                    
+                                    if($row > 0)
+                    {   
+                        $d = mysqli_fetch_assoc($qry)
+                    
+                ?>
                   <ul>
-                    <li>SK Seri Paka (2008 - 2013)</li>
-                    <li>SMP Ma'had Al Zaytun, Indonesia (2014 - 2015)</li>
-                    <li>SMK Setia Alam (2015 - 2018)</li>
-                    <li>UiTM Raub - Diploma In Computer Science (2019 - 2022) </li>
-                    <li>UiTM Shah Alam - Degree Netcentric Computing (2022 - Present) </li>
+                    <li> <?php echo $d['sk']; ?> </li>
+                    <li> <?php echo $d['indo']; ?> </li>
+                    <li> <?php echo $d['smk']; ?> </li>
+                    <li> <?php echo $d['diploma']; ?> </li>
+                    <li> <?php echo $d['degree']; ?> </li>
                   </ul>
                   <br/>
                   <br/>
+                  <?php
+                    }
+                    ?>
                   <h2>Working Experience</h2>
+                  <?php
+                                    $sql = "SELECT * FROM experience"; 
+    
+
+                                    $qry=mysqli_query($conn,$sql);
+                                    $row=mysqli_num_rows($qry);
+                    
+                                    if($row > 0)
+                    {   
+                        $d = mysqli_fetch_assoc($qry)
+                    
+                ?>
                   <ul>
-                    <li>Secrezz, Part Time Graphic Designer (2019 - 2022)</li>
-                    <li>REKA, Web Developer Intern (2021 - 2022)</li>
+                    <li> <?php echo $d['company1']; ?> </li>
+                    <li> <?php echo $d['company2']; ?> </li>
                   </ul>
+                  <?php
+                    }
+                    ?>
                 </div>
               </div>
               <div class="cardabout2"></div>
