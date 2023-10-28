@@ -202,8 +202,8 @@ html {
 }
 
 .cardabout{
-  width: 50vh;
-  height: 60vh;
+  width: 40vh;
+  height: 50vh;
   border-radius: 50px;
   background-position: center;
   background-size: cover;
@@ -219,8 +219,8 @@ html {
 }
 
 .cardabout2{
-  width: 50vh;
-  height: 60vh;
+  width: 40vh;
+  height: 50vh;
   border-radius: 50px;
   background-position: center;
   background-size: cover;
